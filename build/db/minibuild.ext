@@ -1,0 +1,12 @@
+ext_type = 'pre-build-noarch'
+ext_name = 'mkmagicdb'
+
+ext_call_type = 'interpreter'
+
+ext_native_depends = ['../compiler']
+ext_exe_path_native_as_var = [['LIBMAGIC_COMPILER', '../compiler']]
+
+ext_vars_required = ['OS_SEP', 'DIR_HERE', 'BUILDSYS_TARGET_OBJ_NOARCH_DIR', 'BUILDSYS_TARGET_SRC_DIR']
+ext_local_vars_required = ['LIBMAGIC_COMPILER']
+
+ext_call_cmdline = '{DIR_HERE}{OS_SEP}libmagic_compile_db.py --compiler {LIBMAGIC_COMPILER} --objdir {BUILDSYS_TARGET_OBJ_NOARCH_DIR} --input {DIR_HERE}/../../vendor/magic --output {BUILDSYS_TARGET_SRC_DIR}/magic_db.c'
